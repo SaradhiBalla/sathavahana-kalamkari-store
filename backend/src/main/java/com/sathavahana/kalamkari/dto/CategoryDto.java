@@ -1,0 +1,1 @@
+package com.sathavahana.kalamkari.dto; import com.sathavahana.kalamkari.domain.Category; public record CategoryDto(Long id,String slug,String name,String description){public static CategoryDto of(Category c){return new CategoryDto(c.getId(),c.getSlug(),c.getName(),c.getDescription());}}

@@ -1,0 +1,3 @@
+package com.sathavahana.kalamkari.domain;
+import jakarta.persistence.*; import java.math.BigDecimal;
+@Entity @Table(name="cart_items") public class CartItem { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id; @ManyToOne(fetch=FetchType.LAZY) @JoinColumn(name="cart_id") private Cart cart; @ManyToOne(fetch=FetchType.LAZY) private Product product; private int quantity; @Column(name="unit_price") private BigDecimal unitPrice; public CartItem(){} public CartItem(Cart c,Product p,int q){cart=c;product=p;quantity=q;unitPrice=p.getPrice();} public Long getId(){return id;} public Product getProduct(){return product;} public int getQuantity(){return quantity;} public void setQuantity(int v){quantity=v;} public BigDecimal getUnitPrice(){return unitPrice;}}

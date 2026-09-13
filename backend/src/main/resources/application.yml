@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: kalamkari-api
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/kalamkari}
+    username: ${DATABASE_USERNAME:kalamkari}
+    password: ${DATABASE_PASSWORD:kalamkari}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+server:
+  port: ${PORT:8080}
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

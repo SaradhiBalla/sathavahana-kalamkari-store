@@ -1,0 +1,2259 @@
+/* =========================================================
+   SATHAVAHANA KALAMKARI HOUSE
+   HOME PAGE STYLES
+========================================================= */
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.home-hero {
+
+    position: relative;
+
+    min-height: calc(100vh - 120px);
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    padding:
+        90px 0;
+
+    background:
+        radial-gradient(
+            circle at 82% 20%,
+            rgba(181, 138, 50, 0.13),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 8% 80%,
+            rgba(101, 31, 39, 0.08),
+            transparent 25%
+        ),
+        var(--color-paper);
+}
+
+
+/* Decorative background lines */
+
+.home-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 48%;
+    height: 100%;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent 0,
+            transparent 27px,
+            rgba(101, 31, 39, 0.035) 28px,
+            transparent 29px
+        );
+
+    pointer-events: none;
+}
+
+
+/* Hero content */
+
+.home-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.home-hero .eyebrow {
+
+    margin-bottom:
+        20px;
+
+}
+
+.home-hero-title {
+
+    max-width:
+        800px;
+
+    margin:
+        0 0 25px;
+
+    color:
+        var(--color-indigo-dark);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            3.2rem,
+            7vw,
+            6.4rem
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        0.98;
+
+    letter-spacing:
+        -0.045em;
+}
+
+.home-hero-title span {
+
+    display:
+        block;
+
+    margin-top:
+        12px;
+
+    color:
+        var(--color-maroon);
+}
+
+.home-hero-description {
+
+    max-width:
+        610px;
+
+    margin-bottom:
+        32px;
+
+    color:
+        var(--color-text-muted);
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.85;
+}
+
+.home-hero-actions {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        13px;
+}
+
+
+/* =========================================================
+   HERO ARTWORK
+========================================================= */
+
+.home-hero-visual {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        540px;
+}
+
+.hero-art-wrapper {
+
+    position:
+        relative;
+
+    width:
+        min(100%, 480px);
+
+    aspect-ratio:
+        4 / 5;
+
+    padding:
+        14px;
+
+    background:
+        var(--color-white);
+
+    border:
+        1px solid var(--border-soft);
+
+    border-radius:
+        180px 180px 28px 28px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(55, 39, 26, 0.14);
+
+    transform:
+        rotate(2deg);
+
+    transition:
+        transform 450ms ease,
+        box-shadow 450ms ease;
+}
+
+.hero-art-wrapper:hover {
+
+    transform:
+        rotate(0deg)
+        translateY(-6px);
+
+    box-shadow:
+        0 40px 90px
+        rgba(55, 39, 26, 0.19);
+}
+
+.hero-art-inner {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        170px 170px 18px 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d7c7a6,
+            #f3e9d4 45%,
+            #c7a870
+        );
+}
+
+
+/* Kalamkari-inspired floral shapes */
+
+.hero-flower {
+
+    position:
+        absolute;
+
+    border:
+        1px solid
+        rgba(101, 31, 39, 0.4);
+
+    border-radius:
+        45% 55% 50% 50%;
+
+    transform:
+        rotate(45deg);
+}
+
+.hero-flower-one {
+
+    width:
+        180px;
+
+    height:
+        180px;
+
+    top:
+        60px;
+
+    left:
+        50px;
+}
+
+.hero-flower-two {
+
+    width:
+        140px;
+
+    height:
+        140px;
+
+    right:
+        45px;
+
+    bottom:
+        70px;
+
+    border-color:
+        rgba(37, 59, 86, 0.45);
+}
+
+.hero-flower-three {
+
+    width:
+        85px;
+
+    height:
+        85px;
+
+    top:
+        190px;
+
+    right:
+        55px;
+
+    border-color:
+        rgba(181, 138, 50, 0.65);
+}
+
+.hero-vine {
+
+    position:
+        absolute;
+
+    width:
+        230px;
+
+    height:
+        150px;
+
+    border:
+        1px solid
+        rgba(101, 31, 39, 0.32);
+
+    border-right:
+        0;
+
+    border-bottom:
+        0;
+
+    border-radius:
+        100% 0 0 0;
+
+    transform:
+        rotate(-25deg);
+}
+
+.hero-vine-one {
+
+    left:
+        65px;
+
+    bottom:
+        80px;
+}
+
+.hero-vine-two {
+
+    right:
+        30px;
+
+    top:
+        105px;
+
+    transform:
+        rotate(155deg);
+}
+
+
+.hero-art-copy {
+
+    position:
+        relative;
+
+    z-index:
+        4;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    text-align:
+        center;
+
+    padding:
+        30px;
+}
+
+.hero-art-copy span {
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--color-earth);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.22em;
+}
+
+.hero-art-copy strong {
+
+    color:
+        var(--color-maroon);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            5rem
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        0.95;
+}
+
+.hero-art-copy small {
+
+    margin-top:
+        14px;
+
+    color:
+        var(--color-indigo);
+
+    font-size:
+        0.72rem;
+
+    letter-spacing:
+        0.16em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* =========================================================
+   TRUST STRIP
+========================================================= */
+
+.home-trust-strip {
+
+    padding:
+        20px 0;
+
+    background:
+        var(--color-maroon);
+
+    color:
+        var(--color-white);
+}
+
+.home-trust-list {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    list-style:
+        none;
+}
+
+.home-trust-item {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    padding:
+        10px 18px;
+
+    border-right:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    font-size:
+        0.76rem;
+
+    letter-spacing:
+        0.11em;
+
+    text-align:
+        center;
+
+    text-transform:
+        uppercase;
+}
+
+.home-trust-item:last-child {
+
+    border-right:
+        none;
+}
+
+.home-trust-item i {
+
+    font-size:
+        1rem;
+}
+
+
+/* =========================================================
+   SECTION GLOBALS
+========================================================= */
+
+.home-section {
+
+    padding:
+        100px 0;
+}
+
+.home-section-heading {
+
+    max-width:
+        720px;
+
+    margin:
+        0 auto 50px;
+
+    text-align:
+        center;
+}
+
+.home-section-eyebrow {
+
+    display:
+        inline-block;
+
+    margin-bottom:
+        12px;
+
+    color:
+        var(--color-maroon);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.2em;
+
+    text-transform:
+        uppercase;
+}
+
+.home-section-heading h2 {
+
+    margin:
+        0 0 14px;
+
+    color:
+        var(--color-indigo-dark);
+
+    font-size:
+        clamp(
+            2.2rem,
+            5vw,
+            3.8rem
+        );
+
+    font-weight:
+        500;
+}
+
+.home-section-heading p {
+
+    margin:
+        0 auto;
+
+    color:
+        var(--color-text-muted);
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   FEATURED CATEGORIES
+========================================================= */
+
+.categories-section {
+
+    background:
+        var(--color-paper);
+}
+
+.category-card {
+
+    position:
+        relative;
+
+    display:
+        block;
+
+    overflow:
+        hidden;
+
+    aspect-ratio:
+        4 / 5;
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        var(--color-beige);
+
+    box-shadow:
+        var(--shadow-soft);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+.category-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        var(--shadow-hover);
+}
+
+.category-art {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    transition:
+        transform 500ms ease;
+}
+
+.category-card:hover .category-art {
+
+    transform:
+        scale(1.06);
+}
+
+
+/* Individual category visual language */
+
+.category-saree .category-art {
+
+    background:
+        linear-gradient(
+            145deg,
+            #c49a68,
+            #e6d4b3 45%,
+            #7d2630
+        );
+}
+
+.category-dress .category-art {
+
+    background:
+        linear-gradient(
+            145deg,
+            #253b56,
+            #8796aa 45%,
+            #d5ba79
+        );
+}
+
+.category-dupattas .category-art {
+
+    background:
+        linear-gradient(
+            145deg,
+            #8f4736,
+            #d4b17d 50%,
+            #21334d
+        );
+}
+
+.category-decor .category-art {
+
+    background:
+        linear-gradient(
+            145deg,
+            #775238,
+            #dfc995 50%,
+            #8d2e38
+        );
+}
+
+
+/* Decorative pattern */
+
+.category-art::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        150px;
+
+    height:
+        150px;
+
+    top:
+        45px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.45);
+}
+
+.category-art::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        85px;
+
+    height:
+        85px;
+
+    top:
+        78px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.4);
+}
+
+
+.category-overlay {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    padding:
+        24px;
+
+    background:
+        linear-gradient(
+            transparent 45%,
+            rgba(20, 14, 11, 0.72)
+        );
+
+    color:
+        var(--color-white);
+}
+
+.category-content h3 {
+
+    margin:
+        0 0 6px;
+
+    font-size:
+        1.45rem;
+}
+
+.category-content span {
+
+    font-size:
+        0.73rem;
+
+    letter-spacing:
+        0.12em;
+
+    text-transform:
+        uppercase;
+
+    opacity:
+        0.82;
+}
+
+
+/* =========================================================
+   FEATURED PRODUCTS
+========================================================= */
+
+.products-section {
+
+    background:
+        var(--color-cream);
+}
+
+.product-card-home {
+
+    position:
+        relative;
+
+    height:
+        100%;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--color-white);
+
+    border:
+        1px solid
+        var(--border-soft);
+
+    border-radius:
+        var(--radius-md);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+.product-card-home:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        var(--shadow-hover);
+}
+
+.product-card-image {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    aspect-ratio:
+        4 / 5;
+
+    background:
+        var(--color-beige);
+}
+
+.product-card-image::after {
+
+    content:
+        "KALAMKARI";
+
+    position:
+        absolute;
+
+    top:
+        18px;
+
+    left:
+        18px;
+
+    padding:
+        5px 9px;
+
+    background:
+        rgba(255, 255, 255, 0.86);
+
+    color:
+        var(--color-maroon);
+
+    font-size:
+        0.61rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.14em;
+
+    border-radius:
+        999px;
+}
+
+
+/* Placeholder textile artwork */
+
+.product-art {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+}
+
+.product-art::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        72%;
+
+    height:
+        72%;
+
+    border:
+        1px solid
+        rgba(101, 31, 39, 0.35);
+
+    transform:
+        rotate(45deg);
+}
+
+.product-art::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        42%;
+
+    height:
+        42%;
+
+    border:
+        1px solid
+        rgba(37, 59, 86, 0.38);
+
+    transform:
+        rotate(45deg);
+}
+
+.product-one {
+    background:
+        linear-gradient(
+            145deg,
+            #dec79a,
+            #f3e4c4 50%,
+            #87333b
+        );
+}
+
+.product-two {
+    background:
+        linear-gradient(
+            145deg,
+            #29405e,
+            #8d9caf 50%,
+            #d1ae69
+        );
+}
+
+.product-three {
+    background:
+        linear-gradient(
+            145deg,
+            #914332,
+            #e0c48d 55%,
+            #30445d
+        );
+}
+
+.product-four {
+    background:
+        linear-gradient(
+            145deg,
+            #705039,
+            #dbca9f 50%,
+            #87303a
+        );
+}
+
+.product-art-label {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    color:
+        rgba(255, 255, 255, 0.9);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        2rem;
+
+    font-style:
+        italic;
+}
+
+.product-card-body {
+
+    padding:
+        20px;
+}
+
+.product-category {
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--color-earth-light);
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.12em;
+
+    text-transform:
+        uppercase;
+}
+
+.product-name {
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--color-indigo-dark);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        1.16rem;
+
+    font-weight:
+        600;
+}
+
+.product-price {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    color:
+        var(--color-maroon);
+
+    font-size:
+        1rem;
+
+    font-weight:
+        700;
+}
+
+.product-old-price {
+
+    color:
+        var(--color-text-muted);
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        400;
+
+    text-decoration:
+        line-through;
+}
+
+.product-card-actions {
+
+    margin-top:
+        16px;
+}
+
+.product-link {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    color:
+        var(--color-maroon);
+
+    font-size:
+        0.8rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.06em;
+
+    text-transform:
+        uppercase;
+}
+
+.product-link i {
+
+    transition:
+        transform var(--transition-fast);
+}
+
+.product-link:hover i {
+
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+   ABOUT KALAMKARI
+========================================================= */
+
+.about-home-section {
+
+    background:
+        var(--color-paper);
+}
+
+.about-home-visual {
+
+    position:
+        relative;
+
+    min-height:
+        560px;
+
+    padding:
+        14px;
+
+    background:
+        var(--color-white);
+
+    border:
+        1px solid var(--border-soft);
+
+    border-radius:
+        var(--radius-lg);
+
+    box-shadow:
+        var(--shadow-soft);
+}
+
+.about-home-art {
+
+    position:
+        relative;
+
+    height:
+        100%;
+
+    min-height:
+        530px;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ded0b4,
+            #f4e9d2,
+            #ba9a66
+        );
+}
+
+
+/* Decorative Kalamkari-style frame */
+
+.about-home-art::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        30px;
+
+    border:
+        1px solid
+        rgba(101, 31, 39, 0.38);
+
+    border-radius:
+        50% 50% 42% 42%;
+}
+
+.about-home-art::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        230px;
+
+    height:
+        230px;
+
+    border:
+        1px solid
+        rgba(37, 59, 86, 0.4);
+
+    transform:
+        rotate(45deg);
+}
+
+.about-art-copy {
+
+    position:
+        relative;
+
+    z-index:
+        3;
+
+    text-align:
+        center;
+}
+
+.about-art-copy span {
+
+    display:
+        block;
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--color-earth);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.2em;
+}
+
+.about-art-copy strong {
+
+    display:
+        block;
+
+    color:
+        var(--color-maroon);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            5.3rem
+        );
+
+    font-weight:
+        500;
+}
+
+.about-art-copy small {
+
+    display:
+        block;
+
+    margin-top:
+        12px;
+
+    color:
+        var(--color-indigo);
+
+    font-size:
+        0.72rem;
+
+    letter-spacing:
+        0.12em;
+
+    text-transform:
+        uppercase;
+}
+
+.about-home-content {
+
+    padding:
+        20px 0 20px 25px;
+}
+
+.about-home-content .home-section-eyebrow {
+
+    margin-bottom:
+        14px;
+}
+
+.about-home-content h2 {
+
+    margin:
+        0 0 20px;
+
+    color:
+        var(--color-indigo-dark);
+
+    font-size:
+        clamp(
+            2.3rem,
+            4vw,
+            4rem
+        );
+
+    font-weight:
+        500;
+}
+
+.about-home-content p {
+
+    color:
+        var(--color-text-muted);
+
+    line-height:
+        1.85;
+}
+
+.about-home-points {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        14px;
+
+    margin-top:
+        28px;
+
+    padding:
+        0;
+
+    list-style:
+        none;
+}
+
+.about-home-points li {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        10px;
+
+    color:
+        var(--color-text);
+
+    font-size:
+        0.88rem;
+}
+
+.about-home-points i {
+
+    margin-top:
+        3px;
+
+    color:
+        var(--color-maroon);
+}
+
+
+/* =========================================================
+   WHY CHOOSE US
+========================================================= */
+
+.why-section {
+
+    background:
+        var(--color-indigo-dark);
+
+    color:
+        var(--color-white);
+}
+
+.why-section .home-section-heading h2 {
+
+    color:
+        var(--color-white);
+}
+
+.why-section .home-section-heading p {
+
+    color:
+        rgba(255, 255, 255, 0.62);
+}
+
+.why-card {
+
+    height:
+        100%;
+
+    padding:
+        30px 26px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    border-radius:
+        var(--radius-md);
+
+    transition:
+        transform var(--transition-normal),
+        background-color var(--transition-normal);
+}
+
+.why-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255, 255, 255, 0.075);
+}
+
+.why-icon {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    margin-bottom:
+        20px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    border-radius:
+        50%;
+
+    color:
+        var(--color-mustard);
+
+    font-size:
+        1.2rem;
+}
+
+.why-card h3 {
+
+    margin-bottom:
+        12px;
+
+    font-size:
+        1.35rem;
+}
+
+.why-card p {
+
+    margin-bottom:
+        0;
+
+    color:
+        rgba(255, 255, 255, 0.6);
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonials-section {
+
+    background:
+        var(--color-cream);
+}
+
+.testimonial-card {
+
+    height:
+        100%;
+
+    padding:
+        30px;
+
+    background:
+        var(--color-white);
+
+    border:
+        1px solid
+        var(--border-soft);
+
+    border-radius:
+        var(--radius-md);
+
+    box-shadow:
+        var(--shadow-soft);
+}
+
+.testimonial-stars {
+
+    margin-bottom:
+        20px;
+
+    color:
+        var(--color-mustard);
+
+    letter-spacing:
+        4px;
+}
+
+.testimonial-text {
+
+    margin-bottom:
+        22px;
+
+    color:
+        var(--color-text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        1.08rem;
+
+    line-height:
+        1.7;
+}
+
+.testimonial-author {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+}
+
+.testimonial-avatar {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--color-beige);
+
+    color:
+        var(--color-maroon);
+
+    font-family:
+        var(--font-heading);
+
+    font-weight:
+        700;
+}
+
+.testimonial-author strong {
+
+    display:
+        block;
+
+    color:
+        var(--color-indigo-dark);
+
+    font-size:
+        0.88rem;
+}
+
+.testimonial-author span {
+
+    display:
+        block;
+
+    color:
+        var(--color-text-muted);
+
+    font-size:
+        0.73rem;
+}
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+.newsletter-section {
+
+    padding:
+        85px 0;
+
+    background:
+        var(--color-maroon);
+
+    color:
+        var(--color-white);
+}
+
+.newsletter-wrapper {
+
+    max-width:
+        920px;
+
+    margin:
+        0 auto;
+
+    text-align:
+        center;
+}
+
+.newsletter-eyebrow {
+
+    display:
+        inline-block;
+
+    margin-bottom:
+        12px;
+
+    color:
+        #dfc37b;
+
+    font-size:
+        0.73rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.2em;
+
+    text-transform:
+        uppercase;
+}
+
+.newsletter-wrapper h2 {
+
+    margin-bottom:
+        12px;
+
+    color:
+        var(--color-white);
+
+    font-size:
+        clamp(
+            2.1rem,
+            5vw,
+            3.5rem
+        );
+
+    font-weight:
+        500;
+}
+
+.newsletter-wrapper p {
+
+    max-width:
+        600px;
+
+    margin:
+        0 auto 28px;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+}
+
+.newsletter-form {
+
+    display:
+        flex;
+
+    max-width:
+        600px;
+
+    margin:
+        0 auto;
+
+    padding:
+        6px;
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    border-radius:
+        999px;
+}
+
+.newsletter-form input {
+
+    flex:
+        1;
+
+    min-width:
+        0;
+
+    padding:
+        12px 18px;
+
+    background:
+        transparent;
+
+    border:
+        none;
+
+    outline:
+        none;
+
+    color:
+        var(--color-white);
+}
+
+.newsletter-form input::placeholder {
+
+    color:
+        rgba(255, 255, 255, 0.55);
+}
+
+.newsletter-form button {
+
+    flex-shrink:
+        0;
+
+    padding:
+        12px 22px;
+
+    border:
+        none;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--color-white);
+
+    color:
+        var(--color-maroon);
+
+    font-weight:
+        700;
+
+    transition:
+        transform var(--transition-fast);
+}
+
+.newsletter-form button:hover {
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   INSTAGRAM / SOCIAL
+========================================================= */
+
+.social-section {
+
+    background:
+        var(--color-paper);
+}
+
+.social-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap:
+        12px;
+}
+
+.social-card {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    aspect-ratio:
+        1;
+
+    background:
+        var(--color-beige);
+
+    border-radius:
+        10px;
+}
+
+.social-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        20%;
+
+    border:
+        1px solid
+        rgba(101, 31, 39, 0.38);
+
+    transform:
+        rotate(45deg);
+
+    transition:
+        transform 450ms ease;
+}
+
+.social-card::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(101, 31, 39, 0.15),
+            rgba(37, 59, 86, 0.18)
+        );
+}
+
+.social-card:hover::before {
+
+    transform:
+        rotate(90deg)
+        scale(1.08);
+}
+
+.social-one {
+    background:
+        linear-gradient(
+            145deg,
+            #d3bf95,
+            #f2e5c8
+        );
+}
+
+.social-two {
+    background:
+        linear-gradient(
+            145deg,
+            #334761,
+            #b49b6c
+        );
+}
+
+.social-three {
+    background:
+        linear-gradient(
+            145deg,
+            #914033,
+            #e0c48a
+        );
+}
+
+.social-four {
+    background:
+        linear-gradient(
+            145deg,
+            #6e4b38,
+            #d8c99e
+        );
+}
+
+.social-five {
+    background:
+        linear-gradient(
+            145deg,
+            #d4b783,
+            #8d3139
+        );
+}
+
+
+/* =========================================================
+   HOME RESPONSIVE
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .home-hero {
+
+        min-height:
+            auto;
+
+        padding:
+            75px 0 70px;
+    }
+
+    .home-hero-visual {
+
+        min-height:
+            450px;
+
+        margin-top:
+            15px;
+    }
+
+    .home-trust-list {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .home-trust-item:nth-child(2) {
+
+        border-right:
+            none;
+    }
+
+    .home-trust-item {
+
+        border-bottom:
+            1px solid
+            rgba(255, 255, 255, 0.16);
+    }
+
+    .about-home-content {
+
+        padding:
+            30px 0 0;
+    }
+}
+
+
+@media (max-width: 767.98px) {
+
+    .home-section {
+
+        padding:
+            70px 0;
+    }
+
+    .home-hero-title {
+
+        font-size:
+            clamp(
+                2.65rem,
+                13vw,
+                4rem
+            );
+    }
+
+    .home-hero-description {
+
+        font-size:
+            0.96rem;
+    }
+
+    .home-hero-actions {
+
+        flex-direction:
+            column;
+    }
+
+    .home-hero-actions .btn {
+
+        width:
+            100%;
+    }
+
+    .home-hero-visual {
+
+        min-height:
+            360px;
+    }
+
+    .hero-art-wrapper {
+
+        width:
+            min(100%, 360px);
+    }
+
+    .home-trust-list {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .home-trust-item {
+
+        border-right:
+            none;
+
+        border-bottom:
+            1px solid
+            rgba(255, 255, 255, 0.16);
+    }
+
+    .home-trust-item:last-child {
+
+        border-bottom:
+            none;
+    }
+
+    .about-home-visual {
+
+        min-height:
+            400px;
+    }
+
+    .about-home-art {
+
+        min-height:
+            370px;
+    }
+
+    .about-home-points {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .newsletter-form {
+
+        flex-direction:
+            column;
+
+        border-radius:
+            18px;
+
+        padding:
+            8px;
+    }
+
+    .newsletter-form input {
+
+        width:
+            100%;
+
+        padding:
+            13px 15px;
+    }
+
+    .newsletter-form button {
+
+        width:
+            100%;
+    }
+
+    .social-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .social-card:last-child {
+
+        display:
+            none;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .home-hero {
+
+        padding:
+            55px 0;
+    }
+
+    .home-hero-title {
+
+        font-size:
+            2.35rem;
+    }
+
+    .home-hero-visual {
+
+        min-height:
+            315px;
+    }
+
+    .hero-art-wrapper {
+
+        max-width:
+            300px;
+    }
+
+    .home-section-heading {
+
+        margin-bottom:
+            35px;
+    }
+
+    .category-content h3 {
+
+        font-size:
+            1.2rem;
+    }
+
+    .product-card-body {
+
+        padding:
+            16px;
+    }
+}

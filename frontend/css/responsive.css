@@ -1,0 +1,255 @@
+/* =========================================================
+   RESPONSIVE DESIGN
+   SATHAVAHANA KALAMKARI HOUSE
+========================================================= */
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .navbar {
+        min-height: 70px;
+    }
+
+    .navbar-collapse {
+
+        padding:
+            15px 0 10px;
+    }
+
+    .navbar-nav {
+
+        align-items:
+            flex-start !important;
+
+        gap: 2px;
+    }
+
+    .nav-link {
+
+        width: 100%;
+
+        padding:
+            10px 0 !important;
+    }
+
+    .nav-link::after {
+
+        display: none;
+    }
+
+    .foundation-hero {
+
+        padding:
+            75px 0 65px;
+    }
+
+    .foundation-hero h1 {
+
+        font-size:
+            clamp(2.7rem, 8vw, 4.7rem);
+    }
+
+    .hero-art-card {
+
+        max-width:
+            520px;
+
+        margin:
+            0 auto;
+    }
+
+    .hero-art-pattern {
+
+        min-height:
+            340px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .announcement-bar {
+
+        font-size:
+            0.66rem;
+
+        letter-spacing:
+            0.08em;
+
+        line-height:
+            1.5;
+    }
+
+    .brand-monogram {
+
+        width:
+            38px;
+
+        height:
+            38px;
+
+        font-size:
+            0.78rem;
+    }
+
+    .brand-main {
+
+        font-size:
+            0.84rem;
+    }
+
+    .brand-subtitle {
+
+        font-size:
+            0.5rem;
+
+        letter-spacing:
+            0.17em;
+    }
+
+    .foundation-hero {
+
+        padding:
+            60px 0 50px;
+    }
+
+    .foundation-hero h1 {
+
+        margin-bottom:
+            20px;
+
+        font-size:
+            clamp(2.35rem, 13vw, 3.6rem);
+    }
+
+    .hero-description {
+
+        font-size:
+            0.96rem;
+
+        line-height:
+            1.7;
+    }
+
+    .hero-actions {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+    }
+
+    .hero-actions .btn {
+
+        width:
+            100%;
+
+        text-align:
+            center;
+    }
+
+    .hero-art-pattern {
+
+        min-height:
+            300px;
+    }
+
+    .pattern-content strong {
+
+        font-size:
+            3rem;
+    }
+
+    .foundation-features {
+
+        padding:
+            55px 0;
+    }
+
+    .foundation-feature-card {
+
+        padding:
+            27px 23px;
+    }
+
+    .site-footer {
+
+        padding:
+            55px 0 25px;
+    }
+
+    .footer-bottom {
+
+        margin-top:
+            35px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .brand-subtitle {
+
+        letter-spacing:
+            0.12em;
+    }
+
+    .foundation-hero h1 {
+
+        font-size:
+            2.3rem;
+    }
+
+    .hero-art-pattern {
+
+        min-height:
+            260px;
+    }
+
+    
+    .pattern-content strong {
+
+        font-size:
+            2.5rem;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior:
+            auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+}

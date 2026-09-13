@@ -1,0 +1,507 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Explore the Sathavahana Kalamkari House collection of Kalamkari sarees, fabrics, dupattas, artwork, wall hangings, home decor and more."
+    />
+
+    <meta name="author" content="Sathavahana Kalamkari House" />
+
+    <meta
+      property="og:title"
+      content="Kalamkari Collection | Sathavahana Kalamkari House"
+    />
+
+    <meta
+      property="og:description"
+      content="Explore handcrafted and heritage-inspired Kalamkari collections."
+    />
+
+    <meta property="og:type" content="website" />
+
+    <title>Kalamkari Collection | Sathavahana Kalamkari House</title>
+
+    <!-- =====================================================
+     BOOTSTRAP
+====================================================== -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- =====================================================
+     BOOTSTRAP ICONS
+====================================================== -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+    />
+
+    <!-- =====================================================
+     GLOBAL CSS
+====================================================== -->
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link rel="stylesheet" href="../css/responsive.css" />
+
+    <!-- =====================================================
+     PRODUCTS CSS
+====================================================== -->
+
+    <link rel="stylesheet" href="../css/products.css" />
+  </head>
+
+  <body>
+    <!-- =========================================================
+     SHARED ANNOUNCEMENT
+========================================================= -->
+
+    <div id="announcement-container"></div>
+
+    <!-- =========================================================
+     SHARED NAVBAR
+========================================================= -->
+
+    <div id="navbar-container"></div>
+
+    <!-- =========================================================
+     MAIN
+========================================================= -->
+
+    <main>
+      <!-- =====================================================
+     COLLECTION HERO
+====================================================== -->
+
+      <section class="products-page-hero">
+        <div class="container">
+          <div class="products-hero-content">
+            <span class="products-eyebrow"> THE COLLECTION </span>
+
+            <h1>
+              Discover the Art
+              <span>of Kalamkari.</span>
+            </h1>
+
+            <p>
+              Explore heritage-inspired textiles, handcrafted creations and
+              artistic pieces selected for a contemporary collection.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+     CATALOG
+====================================================== -->
+
+      <section class="products-catalog-section">
+        <div class="container">
+          <!-- =================================================
+             MOBILE FILTER BUTTON
+        ================================================== -->
+
+          <div class="mobile-filter-bar">
+            <button
+              type="button"
+              class="btn catalog-filter-toggle"
+              id="mobileFilterToggle"
+              aria-controls="catalogFilters"
+              aria-expanded="false"
+            >
+              <i class="bi bi-sliders" aria-hidden="true"></i>
+
+              Filters
+            </button>
+
+            <span class="mobile-result-count" id="mobileResultCount">
+              0 products
+            </span>
+          </div>
+
+          <div class="row g-4">
+            <!-- =================================================
+                 FILTER SIDEBAR
+            ================================================== -->
+
+            <aside class="col-lg-3" id="catalogFilters">
+              <div class="catalog-filters">
+                <div class="catalog-filter-header">
+                  <div>
+                    <span class="filter-eyebrow"> REFINE </span>
+
+                    <h2>Shop by</h2>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="filter-close-btn"
+                    id="filterCloseButton"
+                    aria-label="Close filters"
+                  >
+                    <i class="bi bi-x-lg" aria-hidden="true"></i>
+                  </button>
+                </div>
+
+                <!-- CATEGORY -->
+
+                <div class="filter-group">
+                  <div class="filter-group-title">Category</div>
+
+                  <label class="filter-option">
+                    <input type="radio" name="category" value="all" checked />
+
+                    <span> All Collections </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="category" value="sarees" />
+
+                    <span> Kalamkari Sarees </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input
+                      type="radio"
+                      name="category"
+                      value="dress-materials"
+                    />
+
+                    <span> Dress Materials </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="category" value="dupattas" />
+
+                    <span> Kalamkari Dupattas </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="category" value="fabric" />
+
+                    <span> Kalamkari Fabric </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="category" value="wall-hangings" />
+
+                    <span> Wall Hangings </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="category" value="artwork" />
+
+                    <span> Hand-Painted Artwork </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="category" value="home-decor" />
+
+                    <span> Home Decor </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="category" value="accessories" />
+
+                    <span> Accessories </span>
+                  </label>
+                </div>
+
+                <!-- PRICE -->
+
+                <div class="filter-group">
+                  <div class="filter-group-title">Price</div>
+
+                  <label class="filter-option">
+                    <input type="radio" name="price" value="all" checked />
+
+                    <span> All Prices </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="price" value="under-2000" />
+
+                    <span> Under ₹2,000 </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="price" value="2000-5000" />
+
+                    <span> ₹2,000 – ₹5,000 </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="price" value="5000-10000" />
+
+                    <span> ₹5,000 – ₹10,000 </span>
+                  </label>
+
+                  <label class="filter-option">
+                    <input type="radio" name="price" value="above-10000" />
+
+                    <span> Above ₹10,000 </span>
+                  </label>
+                </div>
+
+                <!-- CLEAR -->
+
+                <button
+                  type="button"
+                  class="clear-filters-btn"
+                  id="clearFiltersButton"
+                >
+                  <i
+                    class="bi bi-arrow-counterclockwise"
+                    aria-hidden="true"
+                  ></i>
+
+                  Clear All Filters
+                </button>
+              </div>
+            </aside>
+
+            <!-- =================================================
+                 PRODUCT CONTENT
+            ================================================== -->
+
+            <div class="col-lg-9">
+              <!-- TOOLBAR -->
+
+              <div class="catalog-toolbar">
+                <div>
+                  <p class="catalog-result-text">
+                    Showing
+                    <strong id="productResultCount"> 0 </strong>
+                    creations
+                  </p>
+                </div>
+
+                <div class="catalog-toolbar-controls">
+                  <!-- SEARCH -->
+
+                  <div class="catalog-search">
+                    <i class="bi bi-search" aria-hidden="true"></i>
+
+                    <label for="productSearch" class="visually-hidden">
+                      Search products
+                    </label>
+
+                    <input
+                      type="search"
+                      id="productSearch"
+                      placeholder="Search collection..."
+                      autocomplete="off"
+                    />
+
+                    <button
+                      type="button"
+                      class="search-clear"
+                      id="searchClearButton"
+                      aria-label="Clear search"
+                    >
+                      <i class="bi bi-x" aria-hidden="true"></i>
+                    </button>
+                  </div>
+
+                  <!-- SORT -->
+
+                  <label for="productSort" class="visually-hidden">
+                    Sort products
+                  </label>
+
+                  <select id="productSort" class="catalog-sort">
+                    <option value="featured">Featured</option>
+
+                    <option value="price-low">Price: Low to High</option>
+
+                    <option value="price-high">Price: High to Low</option>
+
+                    <option value="name-asc">Name: A to Z</option>
+
+                    <option value="name-desc">Name: Z to A</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- PRODUCT GRID -->
+
+              <div class="row g-4" id="productGrid"></div>
+
+              <!-- EMPTY STATE -->
+
+              <div class="catalog-empty-state d-none" id="emptyProductState">
+                <div class="empty-state-icon">
+                  <i class="bi bi-search" aria-hidden="true"></i>
+                </div>
+
+                <h2>Nothing Found</h2>
+
+                <p>
+                  We couldn't find products matching your current search or
+                  filters.
+                </p>
+
+                <button
+                  type="button"
+                  class="btn btn-primary-custom"
+                  id="emptyStateResetButton"
+                >
+                  Clear Filters
+                </button>
+              </div>
+
+              <!-- PAGINATION -->
+
+              <nav class="catalog-pagination" aria-label="Product pagination">
+                <button
+                  type="button"
+                  class="pagination-arrow"
+                  id="previousPageButton"
+                  aria-label="Previous page"
+                >
+                  <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                </button>
+
+                <div class="pagination-pages" id="paginationPages"></div>
+
+                <button
+                  type="button"
+                  class="pagination-arrow"
+                  id="nextPageButton"
+                  aria-label="Next page"
+                >
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================================
+     QUICK VIEW MODAL
+========================================================= -->
+
+    <div
+      class="modal fade"
+      id="quickViewModal"
+      tabindex="-1"
+      aria-labelledby="quickViewModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content quick-view-modal">
+          <div class="modal-header">
+            <h2 class="modal-title" id="quickViewModalLabel">Quick View</h2>
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-6">
+                <div class="quick-view-image" id="quickViewImage"></div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="quick-view-category" id="quickViewCategory"></div>
+
+                <h3 id="quickViewProductName"></h3>
+
+                <div class="quick-view-price" id="quickViewPrice"></div>
+
+                <p id="quickViewDescription"></p>
+
+                <div class="quick-view-actions">
+                  <button
+                    type="button"
+                    class="btn btn-primary-custom"
+                    id="quickViewCartButton"
+                  >
+                    <i class="bi bi-bag-plus me-1" aria-hidden="true"></i>
+
+                    Add to Cart
+                  </button>
+
+                  <a
+                    href="#"
+                    class="btn btn-outline-custom"
+                    id="quickViewDetailsLink"
+                  >
+                    View Details
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================
+     TOAST
+========================================================= -->
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="globalToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto"> Sathavahana Kalamkari House </strong>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="toast-body" id="globalToastMessage"></div>
+      </div>
+    </div>
+
+    <!-- =========================================================
+     SHARED FOOTER
+========================================================= -->
+
+    <div id="footer-container"></div>
+
+    <!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- =========================================================
+     MAIN JS
+========================================================= -->
+
+    <script src="../js/main.js"></script>
+
+    <!-- =========================================================
+     PRODUCTS JS
+========================================================= -->
+
+    <script src="../js/products.js"></script>
+  </body>
+</html>

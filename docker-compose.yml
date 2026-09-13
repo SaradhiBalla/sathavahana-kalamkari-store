@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: kalamkari
+      POSTGRES_USER: kalamkari
+      POSTGRES_PASSWORD: kalamkari
+    ports:
+      - "5432:5432"
+    volumes:
+      - kalamkari-postgres:/var/lib/postgresql
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+volumes:
+  kalamkari-postgres:

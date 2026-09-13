@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Product details from Sathavahana Kalamkari House." />
+    <title>Product Details | Sathavahana Kalamkari House</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/products.css" />
+  </head>
+  <body>
+    <div id="announcement-container"></div>
+    <div id="navbar-container"></div>
+
+    <main class="container py-5">
+      <div id="productDetails" class="row g-5 align-items-center"></div>
+      <div id="productNotFound" class="text-center py-5 d-none">
+        <h1>Product not found</h1>
+        <p>That product is no longer available in the collection.</p>
+        <a class="btn btn-primary-custom" href="products.html">Return to collection</a>
+      </div>
+    </main>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="globalToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Sathavahana Kalamkari House</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="globalToastMessage"></div>
+      </div>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/product-details.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+package com.sathavahana.kalamkari.repository; import com.sathavahana.kalamkari.domain.Product; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface ProductRepository extends JpaRepository<Product,Long>{Optional<Product> findBySlugAndActiveTrue(String slug); List<Product> findAllByActiveTrue();}
