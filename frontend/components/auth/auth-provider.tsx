@@ -19,7 +19,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   async function refresh() {
     try {
-      setUser(await apiRequest<CurrentUser>("/users/me"));
+      const current = await apiRequest<CurrentUser>("/users/me");
+      try {
+        current.permissions = await apiRequest<string[]>("/users/me/permissions");
+      } catch {
+        current.permissions = [];
+      }
+      setUser(current);
     } catch {
       setUser(null);
     }

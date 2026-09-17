@@ -6,6 +6,7 @@ export type CurrentUser = {
   email: string;
   phone?: string;
   role: string;
+  permissions?: string[];
 };
 
 export async function getCurrentUser(): Promise<CurrentUser | null> {

@@ -1,0 +1,9 @@
+INSERT INTO permissions (name) VALUES
+('AUDIT_VIEW'), ('REPORT_VIEW'), ('SETTINGS_VIEW'), ('SETTINGS_UPDATE')
+ON CONFLICT (name) DO NOTHING;
+
+INSERT INTO role_permissions (role_id, permission_id)
+SELECT r.id, p.id FROM roles r CROSS JOIN permissions p
+WHERE r.name IN ('ADMIN', 'SUPER_ADMIN')
+  AND p.name IN ('AUDIT_VIEW', 'REPORT_VIEW', 'SETTINGS_VIEW', 'SETTINGS_UPDATE')
+ON CONFLICT DO NOTHING;

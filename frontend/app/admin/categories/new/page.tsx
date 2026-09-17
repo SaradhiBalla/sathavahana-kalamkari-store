@@ -1,0 +1,5 @@
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { apiRequest } from "../../../../lib/api/client";
+export default function NewCategoryPage() { const router = useRouter(); const [name, setName] = useState(""); const [description, setDescription] = useState(""); const [error, setError] = useState(""); return <main className="section"><span className="eyebrow">CATALOG</span><h1>New category</h1><form className="checkout-form" onSubmit={async e => { e.preventDefault(); try { await apiRequest("/admin/categories", { method: "POST", body: { name, description } }); router.push("/admin/categories"); } catch (err) { setError(err instanceof Error ? err.message : "Unable to save category"); } }}><label>Name<input required value={name} onChange={e => setName(e.target.value)} /></label><label>Description<textarea value={description} onChange={e => setDescription(e.target.value)} /></label>{error && <p className="error">{error}</p>}<button className="button">Create category</button></form></main>; }

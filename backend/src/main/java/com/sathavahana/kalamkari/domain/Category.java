@@ -7,9 +7,11 @@ public class Category {
  @Column(nullable=false,unique=true) private String slug;
  @Column(nullable=false) private String name;
  private String description;
+ @Column(nullable=false) private boolean archived=false;
  @Column(name="created_at",nullable=false) private Instant createdAt=Instant.now();
  public Category() {}
  public Category(String slug,String name,String description){this.slug=slug;this.name=name;this.description=description;}
  public Long getId(){return id;} public String getSlug(){return slug;} public void setSlug(String v){slug=v;}
  public String getName(){return name;} public void setName(String v){name=v;} public String getDescription(){return description;} public void setDescription(String v){description=v;}
+ public boolean isArchived(){return archived;} public void setArchived(boolean v){archived=v;}
 }

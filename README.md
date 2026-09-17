@@ -52,8 +52,11 @@ Copy `frontend/.env.example` to `frontend/.env.local` when using a non-default A
 - Registration and login endpoints with BCrypt password hashing
 - Short-lived signed access tokens issued through an HttpOnly cookie (Bearer tokens remain supported for API clients)
 - Logout endpoint and credential-aware CORS for the browser client
+- Phase 2 admin workspace with permission-aware dashboard, product/category operations, inventory adjustments, customer and order operations, audit logs, reports, and safe store settings
+- Flyway migrations for inventory transactions, order status history, audit logs, category archival, and admin settings
+- Server-side pagination/search for admin product and customer lists, with transactional non-negative inventory adjustments and validated order transitions
 
-Payment-provider integration, refresh-token rotation/revocation, email verification, cloud image storage, and admin workflows remain explicit extension points rather than being represented as completed production integrations.
+Payment-provider integration, refresh-token rotation/revocation, email verification, cloud image storage, product image upload/reordering, and date-bucketed analytics remain explicit extension points. Admin settings intentionally exclude infrastructure and secret configuration.
 
 ### Authentication endpoints
 
