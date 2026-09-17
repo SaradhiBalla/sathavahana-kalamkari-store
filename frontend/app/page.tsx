@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { ProductCard } from "../components/products/product-card";
-import { products } from "../lib/products";
+import { getProducts } from "../lib/products";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const products = await getProducts();
+
   return (
     <main>
       <section className="container hero">

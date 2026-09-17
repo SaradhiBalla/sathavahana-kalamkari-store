@@ -1,3 +1,5 @@
+import { apiRequest } from "./api/client";
+
 export type Product = {
   id: number;
   slug: string;
@@ -8,6 +10,19 @@ export type Product = {
   description: string;
   artClass: string;
   artLabel: string;
+  imageUrl?: string;
+};
+
+type ApiProduct = {
+  id: number;
+  slug: string;
+  name: string;
+  description: string | null;
+  price: number;
+  stockQuantity: number;
+  categoryId: number | null;
+  categoryName: string | null;
+  imageUrl: string | null;
 };
 
 export const products: Product[] = [
@@ -29,7 +44,41 @@ export const products: Product[] = [
   { id: 16, slug: "botanical-kalamkari-saree", name: "Botanical Kalamkari Saree", category: "sarees", categoryLabel: "Kalamkari Sarees", price: 8900, description: "A statement saree inspired by botanical storytelling and the visual richness of Kalamkari.", artClass: "saree", artLabel: "Botanical" }
 ];
 
-export function getProduct(slug: string) {
+function mapApiProduct(product: ApiProduct): Product {
+  const category = product.categoryName ?? product.slug;
+  const [label] = category.split("-").map((token) => token.charAt(0).toUpperCase() + token.slice(1));
+  return {
+    id: product.id,
+    slug: product.slug,
+    name: product.name,
+    category: category.toLowerCase().replace(/\s+/g, "-"),
+    categoryLabel: product.categoryName ?? "Kalamkari Collection",
+    price: Number(product.price),
+    description: product.description ?? "A handcrafted Kalamkari creation.",
+    artClass: product.categoryName?.toLowerCase().includes("saree") ? "saree" : product.categoryName?.toLowerCase().includes("fabric") ? "fabric" : product.categoryName?.toLowerCase().includes("dupatta") ? "dupatta" : "wall",
+    artLabel: product.name.split(" ").slice(0, 2).join(" ").replace(/[^a-zA-Z ]/g, "") || "Heritage"
+  };
+}
+
+export async function getProducts(): Promise<Product[]> {
+  try {
+    const data = await apiRequest<ApiProduct[]>("/products");
+    return data.length ? data.map(mapApiProduct) : products;
+  } catch {
+    return products;
+  }
+}
+
+export async function getProduct(slug: string): Promise<Product | undefined> {
+  try {
+    const data = await apiRequest<ApiProduct>(`/products/${slug}`);
+    return mapApiProduct(data);
+  } catch {
+    return products.find((product) => product.slug === slug);
+  }
+}
+
+export function getProductSync(slug: string) {
   return products.find((product) => product.slug === slug);
 }
 

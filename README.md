@@ -49,5 +49,16 @@ Copy `frontend/.env.example` to `frontend/.env.local` when using a non-default A
 - Product, category, cart, and order API vertical slice
 - PostgreSQL migrations and Redis local infrastructure
 - DTO-based backend responses and structured API errors
+- Registration and login endpoints with BCrypt password hashing
+- Short-lived signed access tokens issued through an HttpOnly cookie (Bearer tokens remain supported for API clients)
+- Logout endpoint and credential-aware CORS for the browser client
 
-Authentication, payment-provider integration, cloud image storage, and admin workflows remain explicit extension points rather than being represented as completed production integrations.
+Payment-provider integration, refresh-token rotation/revocation, email verification, cloud image storage, and admin workflows remain explicit extension points rather than being represented as completed production integrations.
+
+### Authentication endpoints
+
+- `POST /api/v1/auth/register`
+- `POST /api/v1/auth/login`
+- `POST /api/v1/auth/logout`
+
+Set `AUTH_TOKEN_SECRET` to a random value of at least 32 characters outside local development. The local seed account is `demo@kalamkari.house` with password `password`.
