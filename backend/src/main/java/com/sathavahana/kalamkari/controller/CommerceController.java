@@ -1,0 +1,14 @@
+package com.sathavahana.kalamkari.controller;
+import com.sathavahana.kalamkari.domain.*; import com.sathavahana.kalamkari.repository.*; import com.sathavahana.kalamkari.service.*; import jakarta.validation.Valid; import jakarta.validation.constraints.*; import org.springframework.web.bind.annotation.*; import java.util.*;
+@RestController @RequestMapping("/api/v1") public class CommerceController {
+ private final CurrentUser current; private final ProductRepository products; private final WishlistRepository wishlists; private final ReviewRepository reviews; private final OrderRepository orders; private final ReturnRequestRepository returns;
+ public CommerceController(CurrentUser c,ProductRepository p,WishlistRepository w,ReviewRepository r,OrderRepository o,ReturnRequestRepository rr){current=c;products=p;wishlists=w;reviews=r;orders=o;returns=rr;}
+ @GetMapping("/wishlist") public List<Long> wishlist(){return wishlists.findByUserId(current.require().getId()).stream().map(x->x.getProduct().getId()).toList();}
+ @PostMapping("/wishlist/{productId}") public void addWish(@PathVariable Long productId){var u=current.require();if(wishlists.findByUserIdAndProductId(u.getId(),productId).isEmpty())wishlists.save(new Wishlist(u,products.getReferenceById(productId)));}
+ @DeleteMapping("/wishlist/{productId}") public void removeWish(@PathVariable Long productId){wishlists.findByUserIdAndProductId(current.require().getId(),productId).ifPresent(wishlists::delete);}
+ public record ReviewRequest(@Min(1) @Max(5) int rating,String title,String body,Long orderId){}
+ @PostMapping("/products/{productId}/reviews") public Review review(@PathVariable Long productId,@Valid @RequestBody ReviewRequest r){var u=current.require();Order o=orders.findById(r.orderId()).orElseThrow(()->new NotFoundException("Order not found"));if(!o.getUser().getId().equals(u.getId())||o.getStatus()!=Order.Status.DELIVERED||o.getItems().stream().noneMatch(i->i.getProduct().getId().equals(productId)))throw new ForbiddenException("Verified purchase required");return reviews.save(new Review(products.getReferenceById(productId),u,o,r.rating(),r.title(),r.body()));}
+ @GetMapping("/products/{productId}/reviews") public List<Review> reviews(@PathVariable Long productId){return reviews.findByProductIdAndStatus(productId,"APPROVED");}
+ public record ReturnBody(@NotBlank String reason){}
+ @PostMapping("/orders/{orderId}/returns") public ReturnRequest requestReturn(@PathVariable Long orderId,@Valid @RequestBody ReturnBody b){var u=current.require();Order o=orders.findById(orderId).orElseThrow(()->new NotFoundException("Order not found"));if(!o.getUser().getId().equals(u.getId()))throw new ForbiddenException("Not your order");if(o.getStatus()!=Order.Status.DELIVERED)throw new IllegalArgumentException("Only delivered orders can be returned");return returns.save(new ReturnRequest(o,u,b.reason()));}
+}

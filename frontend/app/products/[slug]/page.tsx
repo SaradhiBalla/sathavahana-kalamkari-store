@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { formatCurrency, getProduct, getProductSync } from "../../../lib/products";
+import { AddToCart } from "../../../components/cart/add-to-cart";
 
 export function generateStaticParams() {
   return getProductSync("heritage-floral-kalamkari-saree") ? [
@@ -31,5 +32,5 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const slug = (await params).slug;
   const product = await getProduct(slug);
   if (!product) notFound();
-  return <main className="container section"><div className="product-grid"><div className={`product-art ${product.artClass}`}>{product.artLabel}</div><div><span className="eyebrow">{product.categoryLabel}</span><h1>{product.name}</h1><p className="price">{formatCurrency(product.price)}</p><p className="muted">{product.description}</p><button className="button" type="button">Add to cart</button></div></div></main>;
+  return <main className="container section"><div className="product-grid"><div className={`product-art ${product.artClass}`}>{product.artLabel}</div><div><span className="eyebrow">{product.categoryLabel}</span><h1>{product.name}</h1><p className="price">{formatCurrency(product.price)}</p><p className="muted">{product.description}</p><AddToCart productId={product.id} /></div></div></main>;
 }

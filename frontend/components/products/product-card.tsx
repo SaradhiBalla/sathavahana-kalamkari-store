@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatCurrency, type Product } from "../../lib/products";
+import { AddToCart } from "../cart/add-to-cart";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
@@ -10,6 +11,7 @@ export function ProductCard({ product }: { product: Product }) {
         <h3>{product.name}</h3>
         <div className="price">{formatCurrency(product.price)}</div>
       </Link>
+      <AddToCart productId={product.id} />
     </article>
   );
 }

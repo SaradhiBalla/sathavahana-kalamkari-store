@@ -55,8 +55,10 @@ Copy `frontend/.env.example` to `frontend/.env.local` when using a non-default A
 - Phase 2 admin workspace with permission-aware dashboard, product/category operations, inventory adjustments, customer and order operations, audit logs, reports, and safe store settings
 - Flyway migrations for inventory transactions, order status history, audit logs, category archival, and admin settings
 - Server-side pagination/search for admin product and customer lists, with transactional non-negative inventory adjustments and validated order transitions
+- Phase 3 commerce foundation with guest browser carts, persistent customer carts, stock-validated cart mutations, transactional checkout, COD/mock payment abstraction, coupon validation, payment records, shipments, return requests, wishlists, and verified-purchase reviews
+- Checkout re-reads product pricing and inventory on the backend, uses idempotency keys, and clears the customer cart only after successful order/payment persistence
 
-Payment-provider integration, refresh-token rotation/revocation, email verification, cloud image storage, product image upload/reordering, and date-bucketed analytics remain explicit extension points. Admin settings intentionally exclude infrastructure and secret configuration.
+Production payment/shipping providers, refresh-token rotation/revocation, email verification, cloud image storage, product image upload/reordering, and date-bucketed analytics remain explicit extension points. Admin settings intentionally exclude infrastructure and secret configuration. Guest carts are browser-backed until login; customer cart merge and full shipment/return administration require further provider/business-rule integration.
 
 ### Authentication endpoints
 
