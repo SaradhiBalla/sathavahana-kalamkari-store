@@ -1,6 +1,8 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080/api/v1";
 
-export async function apiRequest<T>(path: string, init?: RequestInit): Promise<T> {
+type ApiRequestInit = Omit<RequestInit, "body"> & { body?: BodyInit | Record<string, unknown> };
+
+export async function apiRequest<T>(path: string, init?: ApiRequestInit): Promise<T> {
   const headers = new Headers(init?.headers ?? {});
 
   if (!headers.has("Content-Type") && init?.body !== undefined && !(init.body instanceof FormData)) {

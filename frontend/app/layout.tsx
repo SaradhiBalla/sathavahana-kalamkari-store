@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import "../components/auth/auth-form.css";
+import { AuthNav } from "../components/site/auth-nav";
 
 export const metadata: Metadata = {
   title: { default: "Sathavahana Kalamkari House", template: "%s | Sathavahana Kalamkari House" },
@@ -21,6 +23,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <li><Link href="/about">About</Link></li>
               <li><Link href="/products">Shop</Link></li>
               <li><Link href="/cart">Cart</Link></li>
+              <li className="auth-links"><AuthNav /></li>
             </ul>
           </nav>
         </header>
