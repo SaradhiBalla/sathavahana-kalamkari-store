@@ -13,6 +13,8 @@ Production-oriented e-commerce foundation for heritage-inspired Kalamkari textil
 Start infrastructure:
 
 ```bash
+copy .env.example .env
+# Replace the placeholder password and token secret in .env
 docker compose up -d
 ```
 
@@ -38,6 +40,53 @@ The API is available at `http://localhost:8080`, with catalog endpoints under `/
 ## Configuration
 
 Copy `frontend/.env.example` to `frontend/.env.local` when using a non-default API URL. Database credentials are configured through `DATABASE_URL`, `DATABASE_USERNAME`, and `DATABASE_PASSWORD`.
+For Compose, copy the root `.env.example` to `.env`; never commit the resulting `.env`.
+
+## Container images
+
+The backend and frontend each use a multi-stage Dockerfile. Build and run the complete
+stack with:
+
+```bash
+docker compose build
+docker compose up -d
+docker compose ps
+```
+
+The runtime images run as non-root users and expose healthchecks. The backend health
+endpoint is `http://localhost:8080/actuator/health`; Compose waits for PostgreSQL and
+the backend before starting the frontend. Database and Redis ports are published for
+local development; remove those port mappings or restrict them at the deployment edge
+in production.
+
+## Operations and release checklist
+
+Before each release:
+
+1. Set a unique, randomly generated `AUTH_TOKEN_SECRET` (at least 32 characters),
+   database password, and `CORS_ALLOWED_ORIGINS`; set `AUTH_COOKIE_SECURE=true` behind
+   HTTPS.
+2. Review dependency and container scan results from CI. Do not ship images with
+   high/critical vulnerabilities unless the exception is documented and approved.
+3. Build images from the tagged commit, record the image digests, and run
+   `docker compose config` with the production environment before deployment.
+4. Confirm PostgreSQL backups and restore testing, migration ownership, TLS termination,
+   log/metric collection, and alerting for failed healthchecks.
+5. Deploy the backend first, verify `/actuator/health`, then roll out the frontend.
+   Keep the previous image available for rollback.
+
+Routine operations:
+
+```bash
+docker compose ps
+docker compose logs --tail=200 backend
+docker compose exec postgres pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+docker compose down
+```
+
+For rollback, redeploy the previously recorded image tags/digests and do not run
+destructive database changes manually. Flyway migrations are applied by the backend;
+take a backup before deploying a release that contains migrations.
 
 ## Current capabilities
 

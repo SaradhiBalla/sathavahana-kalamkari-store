@@ -19,8 +19,11 @@ spring:
       mode: ${SQL_INIT_MODE:always}
   flyway:
     enabled: ${FLYWAY_ENABLED:false}
+  lifecycle:
+    timeout-per-shutdown-phase: ${SHUTDOWN_TIMEOUT:20s}
 server:
   port: ${PORT:8080}
+  shutdown: graceful
 app:
   auth:
     secret: ${AUTH_TOKEN_SECRET:local-development-secret-change-me-please-32}
@@ -32,3 +35,11 @@ management:
     web:
       exposure:
         include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: ${HEALTH_SHOW_DETAILS:never}
+  health:
+    redis:
+      enabled: ${REDIS_HEALTH_ENABLED:false}
