@@ -57,8 +57,9 @@ Copy `frontend/.env.example` to `frontend/.env.local` when using a non-default A
 - Server-side pagination/search for admin product and customer lists, with transactional non-negative inventory adjustments and validated order transitions
 - Phase 3 commerce foundation with guest browser carts, persistent customer carts, stock-validated cart mutations, transactional checkout, COD/mock payment abstraction, coupon validation, payment records, shipments, return requests, wishlists, and verified-purchase reviews
 - Checkout re-reads product pricing and inventory on the backend, uses idempotency keys, and clears the customer cart only after successful order/payment persistence
+- Phase 4 growth foundation with in-app notifications, notification preferences, development email delivery logging, back-in-stock subscriptions, scheduled abandoned-cart detection, recently viewed products, rule-based recommendations, search/analytics events, admin analytics CSV export, and validated local media metadata storage
 
-Production payment/shipping providers, refresh-token rotation/revocation, email verification, cloud image storage, product image upload/reordering, and date-bucketed analytics remain explicit extension points. Admin settings intentionally exclude infrastructure and secret configuration. Guest carts are browser-backed until login; customer cart merge and full shipment/return administration require further provider/business-rule integration.
+Production payment/shipping/email providers, refresh-token rotation/revocation, cloud image storage, media reordering/CDN optimization, and full date-range dashboard visualizations remain explicit extension points. Admin settings intentionally exclude infrastructure and secret configuration. Guest carts are browser-backed until login; customer cart merge and full shipment/return administration require further provider/business-rule integration.
 
 ### Authentication endpoints
 

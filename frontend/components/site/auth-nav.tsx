@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useAuth } from "../auth/auth-provider";
+import { NotificationBell } from "../notifications/notification-bell";
 
 export function AuthNav() {
   const { user, loading, signOut } = useAuth();
@@ -10,5 +11,5 @@ export function AuthNav() {
     return <><Link href="/login">Login</Link><Link href="/register">Register</Link></>;
   }
 
-  return <><Link href="/account">Account</Link><button className="nav-button" type="button" onClick={() => signOut()}>Logout</button></>;
+  return <><Link href="/account">Account</Link><NotificationBell /><button className="nav-button" type="button" onClick={() => signOut()}>Logout</button></>;
 }

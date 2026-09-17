@@ -1,0 +1,45 @@
+CREATE TABLE IF NOT EXISTS notification_events (
+ id BIGSERIAL PRIMARY KEY, event_type VARCHAR(80) NOT NULL, aggregate_type VARCHAR(80),
+ aggregate_id BIGINT, user_id BIGINT REFERENCES users(id), payload TEXT NOT NULL,
+ occurred_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, processed_at TIMESTAMPTZ);
+CREATE TABLE IF NOT EXISTS notification_preferences (
+ id BIGSERIAL PRIMARY KEY, user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+ channel VARCHAR(20) NOT NULL, event_type VARCHAR(80) NOT NULL, enabled BOOLEAN NOT NULL DEFAULT TRUE,
+ UNIQUE(user_id,channel,event_type));
+CREATE TABLE IF NOT EXISTS in_app_notifications (
+ id BIGSERIAL PRIMARY KEY, user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+ event_type VARCHAR(80) NOT NULL, title VARCHAR(240) NOT NULL, body TEXT NOT NULL,
+ read_at TIMESTAMPTZ, created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS email_delivery_logs (
+ id BIGSERIAL PRIMARY KEY, event_id BIGINT REFERENCES notification_events(id),
+ recipient VARCHAR(254) NOT NULL, subject VARCHAR(240) NOT NULL, provider VARCHAR(40) NOT NULL,
+ status VARCHAR(30) NOT NULL, error_message TEXT, sent_at TIMESTAMPTZ);
+CREATE TABLE IF NOT EXISTS back_in_stock_subscriptions (
+ id BIGSERIAL PRIMARY KEY, product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+ user_id BIGINT REFERENCES users(id) ON DELETE CASCADE, email VARCHAR(254) NOT NULL,
+ created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, notified_at TIMESTAMPTZ);
+CREATE UNIQUE INDEX IF NOT EXISTS ux_back_stock_email_product ON back_in_stock_subscriptions(product_id,email);
+CREATE TABLE IF NOT EXISTS abandoned_carts (
+ id BIGSERIAL PRIMARY KEY, cart_id BIGINT NOT NULL UNIQUE REFERENCES carts(id) ON DELETE CASCADE,
+ user_id BIGINT REFERENCES users(id), detected_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ recovered_at TIMESTAMPTZ, reminder_sent_at TIMESTAMPTZ);
+CREATE TABLE IF NOT EXISTS recently_viewed_products (
+ id BIGSERIAL PRIMARY KEY, user_id BIGINT REFERENCES users(id) ON DELETE CASCADE,
+ visitor_token VARCHAR(128), product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+ viewed_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE INDEX IF NOT EXISTS ix_recent_views_user ON recently_viewed_products(user_id,viewed_at);
+CREATE TABLE IF NOT EXISTS analytics_events (
+ id BIGSERIAL PRIMARY KEY, user_id BIGINT REFERENCES users(id), visitor_token VARCHAR(128),
+ event_type VARCHAR(80) NOT NULL, product_id BIGINT REFERENCES products(id),
+ query_text VARCHAR(500), metadata TEXT, occurred_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS analytics_daily_aggregates (
+ id BIGSERIAL PRIMARY KEY, metric_date DATE NOT NULL, event_type VARCHAR(80) NOT NULL,
+ product_id BIGINT REFERENCES products(id), event_count BIGINT NOT NULL DEFAULT 0,
+ UNIQUE(metric_date,event_type,product_id));
+CREATE TABLE IF NOT EXISTS media_assets (
+ id BIGSERIAL PRIMARY KEY, object_key VARCHAR(300) NOT NULL UNIQUE, original_name VARCHAR(255) NOT NULL,
+ content_type VARCHAR(120) NOT NULL, size_bytes BIGINT NOT NULL, sha256 VARCHAR(64) NOT NULL,
+ storage_provider VARCHAR(40) NOT NULL, created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP);
+INSERT INTO permissions(name) VALUES
+ ('NOTIFICATION_MANAGE'),('ANALYTICS_VIEW'),('ANALYTICS_EXPORT'),('MEDIA_MANAGE')
+ ON CONFLICT (name) DO NOTHING;

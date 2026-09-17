@@ -58,6 +58,9 @@ a { color: inherit; text-decoration: none; }
 .inline-form { align-items: center; display: flex; gap: .75rem; }
 .inline-form input { flex: 1; }
 .checkout-steps { border-bottom: 1px solid var(--beige); color: var(--muted); margin: 1.5rem 0; padding-bottom: 1rem; }
+.notification-list { display: grid; gap: 1rem; max-width: 720px; }
+.notification { background: rgba(255,255,255,.7); border: 1px solid var(--beige); padding: 1rem; }
+.notification.read { opacity: .7; }
 .admin-layout { display: grid; grid-template-columns: 230px 1fr; min-height: 75vh; }
 .admin-sidebar { background: var(--maroon-dark); color: var(--cream); display: flex; flex-direction: column; gap: 2rem; padding: 2rem 1.25rem; }
 .admin-sidebar .brand { color: white; }
