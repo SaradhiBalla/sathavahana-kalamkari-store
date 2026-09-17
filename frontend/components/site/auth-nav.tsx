@@ -1,26 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { getCurrentUser, logout, type CurrentUser } from "../../lib/auth";
+import { useAuth } from "../auth/auth-provider";
 
 export function AuthNav() {
-  const [user, setUser] = useState<CurrentUser | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    getCurrentUser().then(setUser).finally(() => setLoading(false));
-  }, []);
-
-  async function handleLogout() {
-    await logout();
-    setUser(null);
-  }
-
-  if (loading) return null;
+  const { user, loading, signOut } = useAuth();
+  if (loading) return <span aria-live="polite">...</span>;
   if (!user) {
     return <><Link href="/login">Login</Link><Link href="/register">Register</Link></>;
   }
 
-  return <><Link href="/account">Account</Link><button className="nav-button" type="button" onClick={handleLogout}>Logout</button></>;
+  return <><Link href="/account">Account</Link><button className="nav-button" type="button" onClick={() => signOut()}>Logout</button></>;
 }

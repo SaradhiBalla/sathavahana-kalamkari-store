@@ -7,6 +7,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+    private final AdminAuthorizationInterceptor adminAuthorization;
+    public WebConfig(AdminAuthorizationInterceptor adminAuthorization){this.adminAuthorization=adminAuthorization;}
     @Value("${app.cors.allowed-origins:http://localhost:3000}")
     private String origins;
 
@@ -17,5 +19,8 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
+    }
+    @Override public void addInterceptors(org.springframework.web.servlet.config.annotation.InterceptorRegistry registry) {
+        registry.addInterceptor(adminAuthorization).addPathPatterns("/api/v1/admin/**");
     }
 }

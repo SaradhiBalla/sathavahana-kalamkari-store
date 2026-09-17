@@ -23,6 +23,7 @@ export default function RegisterPage() {
     setLoading(true);
     try {
       await apiRequest("/auth/register", { method: "POST", body: { email: form.email, password: form.password, firstName, lastName: lastName.join(" "), phone: form.phone } });
+      window.dispatchEvent(new Event("kalamkari-auth-changed"));
       router.push("/account");
       router.refresh();
     } catch {

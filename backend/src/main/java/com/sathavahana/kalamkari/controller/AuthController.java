@@ -36,6 +36,7 @@ public class AuthController {
     @PostMapping("/login")
     public Response login(@Valid @RequestBody Login input, HttpServletResponse response) {
         User user = users.findByEmailIgnoreCase(input.email().trim()).filter(u -> hasher.matches(input.password(), u.getPasswordHash())).orElseThrow(() -> new UnauthorizedException("Invalid email or password"));
+        if (user.getStatus() != User.Status.ACTIVE) throw new UnauthorizedException("This account cannot be signed in to");
         return response(user, response);
     }
     @PostMapping("/logout")

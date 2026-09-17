@@ -24,7 +24,9 @@ public class CurrentUser {
             throw new UnauthorizedException("Authentication is required");
         }
         Long id = tokens.verify(token);
-        return users.findById(id).orElseThrow(() -> new UnauthorizedException("Invalid user"));
+        User user = users.findById(id).orElseThrow(() -> new UnauthorizedException("Invalid user"));
+        if (user.getStatus() != User.Status.ACTIVE) throw new UnauthorizedException("Account is not active");
+        return user;
     }
 
     private String token() {

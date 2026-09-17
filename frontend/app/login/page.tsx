@@ -19,6 +19,7 @@ export default function LoginPage() {
     setLoading(true);
     try {
       await apiRequest("/auth/login", { method: "POST", body: { email, password } });
+      window.dispatchEvent(new Event("kalamkari-auth-changed"));
       const redirect = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("redirect");
       router.push(safeRedirect(redirect) as Parameters<typeof router.push>[0]);
       router.refresh();
