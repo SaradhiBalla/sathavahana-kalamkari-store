@@ -36,6 +36,79 @@ mvn spring-boot:run
 ```
 
 The API is available at `http://localhost:8080`, with catalog endpoints under `/api/v1`.
+Interactive API documentation is available at
+`http://localhost:8080/swagger-ui.html`; the OpenAPI JSON document is at
+`http://localhost:8080/v3/api-docs`.
+
+## Run the complete project locally on Windows
+
+### Option A: Run with local H2 (no Docker required)
+
+Prerequisites:
+
+- Java 21 or newer
+- Maven 3.9 or newer
+- Node.js 22 or newer
+- npm
+
+Open two PowerShell windows from the repository root.
+
+PowerShell window 1 (backend):
+
+```powershell
+Set-Location "D:\Sathavahana Kalamkari House\backend"
+mvn spring-boot:run
+```
+
+PowerShell window 2 (frontend):
+
+```powershell
+Set-Location "D:\Sathavahana Kalamkari House\frontend"
+npm install
+Copy-Item .env.example .env.local
+npm run dev
+```
+
+Open:
+
+- Storefront: `http://localhost:3000`
+- Swagger UI: `http://localhost:8080/swagger-ui.html`
+- API specification: `http://localhost:8080/v3/api-docs`
+- Health check: `http://localhost:8080/actuator/health`
+
+The default H2 database is in memory and is recreated whenever the backend
+restarts. The seeded demo account is `demo@kalamkari.house` with password
+`password`.
+
+### Option B: Run with PostgreSQL and Redis using Docker Compose
+
+From the repository root:
+
+```powershell
+Copy-Item .env.example .env
+notepad .env
+```
+
+Set real local values for `POSTGRES_PASSWORD`, `DATABASE_PASSWORD`, and
+`AUTH_TOKEN_SECRET` in `.env`, then start the stack:
+
+```powershell
+docker compose up --build
+```
+
+Open the same URLs listed above. Stop the stack with:
+
+```powershell
+docker compose down
+```
+
+To stop it and remove the local PostgreSQL volume:
+
+```powershell
+docker compose down -v
+```
+
+Do not use the `-v` form if you want to keep the local database.
 
 ## Configuration
 
